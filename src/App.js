@@ -5,15 +5,16 @@ import Products from './pages/Products';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
+import Room from './pages/Room';
 function App() {
   return (
     <>
       <Router>
         <Navbar/>
         <Routes>
-          <Route path='/' exact component={Home} />
-          <Route path='/reports' component={Reports} />
-          <Route path='/products' component={Products} />
+          <Route path="/" element={<Home />}/>
+          <Route path='/room' element={<Room />}/>
+          <Route path='/reports' element={<Reports />}/>
         </Routes>
       </Router>
     </>
