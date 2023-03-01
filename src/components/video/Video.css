@@ -1,8 +1,15 @@
 .video-background {
-    position: fixed;
-    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .video-background iframe {
+    height: 100vh;
+  }
+  /* .overlay{
+    position: absolute;
+    top: 80;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
-  }
+    /* background-color: #313131cc; */
+  /* }   */ 
