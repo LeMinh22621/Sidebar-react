@@ -7,6 +7,16 @@
   font-family: 'Lato', sans-serif;
 }
 
+body{
+  background: rgb(34,193,195);
+  background: linear-gradient(135deg, rgb(57, 47, 192) 0%,     rgb(101, 168, 231) 100%);
+  font-family: "work sans";
+}
+
+html{
+  font-size: 100%;
+}
+
 .home,
 .reports,
 .products,
