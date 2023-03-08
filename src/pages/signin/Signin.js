@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import "../signin/signin.css";
 import * as IoIcons from 'react-icons/io';
 
@@ -29,13 +29,13 @@ const Form = props => (
 );
 
 const FormButton = props => (
-  <div id="button" class="row">
+  <div id="button" className="row">
     <button>{props.title}</button>
   </div>
 );
 
 const FormInput = props => (
-  <div class="row">
+  <div className="row">
     <label>{props.description}</label>
     <input type={props.type} placeholder={props.placeholder}/>
   </div>  
@@ -45,36 +45,27 @@ const OtherMethods = props => (
   <div id="alternativeLogin">
     <label>Or sign in with:</label>
     <div id="iconGroup">
-      < Facebook/>
-      {/* < Google/> */}
+      <Google />
     </div>
   </div>
 );
 
-const Facebook = props => (
-  <Link to={"login/facebook"}>
-    {IoIcons.IoLogoFacebook}
-    <span>{"Facebook"}</span>
-  </Link>
-);
-// const Google = props => (
-//   <Link to={"login/google"}>
-//     {IoIcons.IoLogoGoogle}
-//   </Link>
-// );
+export function Google(){
+  return(
+    <div>
+      <Link to={"login/google"}>
+        {<IoIcons.IoLogoGoogle/>}
+        <span>{"Google"}</span>
+      </Link>
+    </div>
+  );
+}
 
-// const Twitter = props => (
-//   <a href="#" id="twitterIcon"></a>
-// );
-
-// const Google = props => (
-//   <a href="#" id="googleIcon"></a>
-// );
 
 class Signin extends React.Component {
   render() {
     return (
-      <div id='sign-in' className='sign-in'>
+      <div id='sign-in'>
         <LoginForm />
       </div>
     );
