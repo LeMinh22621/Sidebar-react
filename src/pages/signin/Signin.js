@@ -1,43 +1,41 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import {React, useState} from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import "../signin/signin.css";
 import * as IoIcons from 'react-icons/io';
+import { useAuth } from '../../hooks/useAuth';
 
-class LoginForm extends React.Component{
-  render(){
+export const LoginForm = props =>{
     return(
       <div id="loginform">
         <FormHeader title="Login" />
-        <Form />
+        <Form setUsername={props.setUsername} loginClickFunc = {props.loginClickFunc}/>
         <OtherMethods />
       </div>
-    )
-  }
+    );
 }
 
 const FormHeader = props => (
   <h2 id="headerTitle">{props.title}</h2>
 );
 
-
 const Form = props => (
  <div>
-   <FormInput description="Username" placeholder="Enter your username" type="text" />
+   <FormInput setUsername={props.setUsername} description="Username" placeholder="Enter your username" type="text" />
    <FormInput description="Password" placeholder="Enter your password" type="password"/>
-   <FormButton title="Log in"/>
+   <FormButton loginClickFunc={props.loginClickFunc} title="Log in"/>
  </div>
 );
 
 const FormButton = props => (
   <div id="button" className="row">
-    <button>{props.title}</button>
+    <button onClick={props.loginClickFunc}>{props.title}</button>
   </div>
 );
 
 const FormInput = props => (
   <div className="row">
     <label>{props.description}</label>
-    <input type={props.type} placeholder={props.placeholder}/>
+    <input onChange={e => props.setUsername(e.target.value)} type={props.type} placeholder={props.placeholder}/>
   </div>  
 );
 
@@ -60,16 +58,20 @@ export function Google(){
     </div>
   );
 }
+export const Signin = () => {
+  const [user, setUser] = useState('')
+  const auth = useAuth()
+  const navigate = useNavigate()
 
-
-class Signin extends React.Component {
-  render() {
-    return (
-      <div id='sign-in'>
-        <LoginForm />
-      </div>
-    );
+  const handleSigin = () => {
+    auth.signin(user);
+    navigate('/')
   }
+  return (
+    <div id='sign-in'>
+      <LoginForm setUsername={setUser} loginClickFunc={handleSigin}/>
+    </div>
+  );
 }
 
 export default Signin;
