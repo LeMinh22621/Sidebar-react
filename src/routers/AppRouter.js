@@ -19,11 +19,3 @@ export default function AppRouter(){
       </AuthProvider>
     );
 }
-
-// function login(){
-//     let history = useHistory();
-//     let login = () => {
-//         localStorage.setItem("accessToken", true);
-//         history.replace("/home")
-//     }
-// }
