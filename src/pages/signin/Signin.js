@@ -1,10 +1,33 @@
-import {React, useState} from 'react';
+import React, { useState, useEffect} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import "../signin/signin.css";
 import * as IoIcons from 'react-icons/io';
 import { useAuth } from '../../hooks/useAuth';
 
+// function fetchData() {
+//   fetch('http://127.0.0.1:8081/api/videos?user_id=1&theme_id=2', {
+//     method: 'GET',
+//     mode: 'no-cors'
+//   })
+//     .then(response => response.json())
+//     .then(data => {
+//       console.log(data);
+//     })
+//     .catch(error => {
+//       console.error(error);
+//     });
+// }
+
+// function MyComponent() {
+//   useEffect(() => {
+//     fetchData();
+//   }, []);
+// }
+
+
 export const LoginForm = props =>{
+    // MyComponent();
+
     return(
       <div id="loginform">
         <FormHeader title="Login" />
