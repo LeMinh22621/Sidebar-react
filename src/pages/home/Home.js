@@ -1,25 +1,22 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import VideoBackground from '../../components/video/Video';
-import { useAuth } from '../../hooks/useAuth';
 import './Home.css'
-import ReactPlayer from 'react-player';
-import { useState } from 'react';
+import axios from 'axios';
 
-import { VideoData } from '../../components/video/VideoData';
 function Home() {
 
-  // const auth = useAuth()
-  // const navigate = useNavigate()
-  // const handleSignout = () => {
-  //   auth.signout();
-  //   navigate('/signin')
-  // }
-  // const [play,setPlay]=useState(false)
-//   console.log(play)
-// const PlayVid=()=>{
-//   setPlay(!play)
-// }
+  var videoData ;
+  axios.get('http://localhost:8081/api/videos?user_id=1&theme_id=1')
+  .then(response => {
+    // Handle the successful response
+    console.log(response.data);
+    videoData = response.data;
+  })
+  .catch(error => {
+    // Handle the error
+    console.log(error);
+  });
+
   return (
     <div className='home' color='red'>
       {/* <div>
@@ -29,7 +26,7 @@ function Home() {
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
       
         <div class="container">
-        {VideoData.map((i)=>
+        {videoData.map((i)=>
         <div class="video-container" > 
        
        <div class="post" >
